@@ -10,7 +10,9 @@ public class RegisterForm extends JFrame {
 	private JTextField idField;
 	private JPasswordField passwordField;
 	private JButton registerButton;
+	private JButton deleteButton;
 	Join join =new Join();
+	Delete delete =new Delete();
 
 	// 생성자
 	public RegisterForm() {
@@ -29,6 +31,7 @@ public class RegisterForm extends JFrame {
         passwordField = new JPasswordField();
         // 회원가입 버튼 추가
         registerButton = new JButton("회원가입");
+        deleteButton = new JButton("회원삭제");
 
         // 패널에 컴포넌트들 추가
         panel.add(idLabel);
@@ -36,6 +39,7 @@ public class RegisterForm extends JFrame {
         panel.add(passwordLabel);
         panel.add(passwordField);
         panel.add(registerButton);
+        panel.add(deleteButton);
 
         registerButton.addActionListener(new ActionListener() {
         	@Override
@@ -49,7 +53,21 @@ public class RegisterForm extends JFrame {
         		join.joinmess(id, pw);
         		
         	}
+        	
 
+        });
+        deleteButton.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		String id = idField.getText();
+        		char[] passwordChars = passwordField.getPassword();
+        		String pw = new String(passwordChars);
+        		
+        		System.out.println(id);
+        		System.out.println(pw);
+        		delete.delete(id, pw);
+        		
+        	}
         });
 	// 패널을 프레임에 추가하고 화면에 표시
 	add(panel);setVisible(true);}
