@@ -16,7 +16,7 @@ public class Money {
 			String user = "campus_24SW_FS_p1_7";
 			String password1 = "smhrd7";
 			conn = DriverManager.getConnection(url,user,password1);	
-			String sql ="UPDATE 거지정보 SET MONEY=? WHERE ID=?";
+			String sql ="UPDATE 거지정보 SET WALLET=? WHERE ID=?";
 			psmt= conn.prepareStatement(sql);
 			psmt.setString(2,id);
 			psmt.setInt(1, money);

@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UpgradeState {
-	public int Upgrades(String id,int state) {
+	public int Upgrades(String id,int Upgrade_status) {
 		PreparedStatement psmt =null;
 		Connection conn =null;
 		
@@ -16,10 +16,10 @@ public class UpgradeState {
 			String user = "campus_24SW_FS_p1_7";
 			String password1 = "smhrd7";
 			conn = DriverManager.getConnection(url,user,password1);	
-			String sql ="UPDATE 거지정보 SET UPGRADESTATE=? WHERE ID=?";
+			String sql ="UPDATE 거지정보 SET UPGRADE_STATUS=? WHERE ID=?";
 			psmt= conn.prepareStatement(sql);
 			psmt.setString(2,id);
-			psmt.setInt(1, state);
+			psmt.setInt(1, Upgrade_status);
 			int row=psmt.executeUpdate();
 			
 		
