@@ -48,8 +48,6 @@ public class RegisterForm extends JFrame {
         		char[] passwordChars = passwordField.getPassword();
         		String pw = new String(passwordChars);
         		
-        		System.out.println(id);
-        		System.out.println(pw);
         		join.joinmess(id, pw);
         		
         	}
@@ -63,8 +61,7 @@ public class RegisterForm extends JFrame {
         		char[] passwordChars = passwordField.getPassword();
         		String pw = new String(passwordChars);
         		
-        		System.out.println(id);
-        		System.out.println(pw);
+        		
         		delete.delete(id, pw);
         		
         	}
