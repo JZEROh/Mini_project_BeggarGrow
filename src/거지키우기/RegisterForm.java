@@ -10,7 +10,11 @@ public class RegisterForm extends JFrame {
 	private JTextField idField;
 	private JPasswordField passwordField;
 	private JButton registerButton;
-
+	private JButton backButton;
+	// 필드 변수
+	private String id;
+	private String pw;
+	
 	// 생성자
 	public RegisterForm() {
         setTitle("회원가입"); // 프레임의 제목 설정
@@ -28,6 +32,8 @@ public class RegisterForm extends JFrame {
         passwordField = new JPasswordField();
         // 회원가입 버튼 추가
         registerButton = new JButton("회원가입");
+        // 뒤로가기 버튼 추가
+        backButton = new JButton("뒤로가기");
 
         // 패널에 컴포넌트들 추가
         panel.add(idLabel);
@@ -35,23 +41,40 @@ public class RegisterForm extends JFrame {
         panel.add(passwordLabel);
         panel.add(passwordField);
         panel.add(registerButton);
-
+        panel.add(backButton);
+        
+        backButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				first_window fw = new first_window();
+				
+			}
+		});
+        
         registerButton.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		String id = idField.getText();
+        		id = idField.getText();
         		char[] passwordChars = passwordField.getPassword();
-        		String pw = new String(passwordChars);
+        		pw = new String(passwordChars);
         		
         		System.out.println(id);
-        		System.out.println(pw);
-        		
+        		System.out.println(pw);	
         	}
-
         });
+        
 	// 패널을 프레임에 추가하고 화면에 표시
-	add(panel);setVisible(true);}
+	add(panel);setVisible(true);
+	}
 	
+	public String getId() {
+		return id;
+	}
+	public String getPw() {
+		return pw;
+	}
 	// 메인 메서드
 	public static void main(String[] args) {
 		// 이벤트 디스패치 스레드에서 UI를 생성하도록 함
