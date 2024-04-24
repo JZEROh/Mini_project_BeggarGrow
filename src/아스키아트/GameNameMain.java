@@ -6,6 +6,7 @@ public class GameNameMain {
 
 		GameName gn = new GameName();
 		name(gn);
+		
 	}
 
 	private static void name(GameName gn) {

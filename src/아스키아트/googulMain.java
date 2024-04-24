@@ -9,7 +9,7 @@ public class googulMain {
 		
 	}
 	
-	public static void googul(googul gg) {
+	private static void googul(googul gg) {
 		gg.Googul();
 	}
 
