@@ -38,7 +38,7 @@ public class UpgradeState {
 			}
 		}
 		
-		return state;
+		return Upgrade_status;
 	}
 
 }

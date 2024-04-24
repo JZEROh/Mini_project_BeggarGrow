@@ -21,6 +21,7 @@ public class first_window extends JFrame{
 	//필드
 	private String id;
 	private String pw;
+	boolean visible = true;
 	
 	// 생성자
 	public first_window() {
@@ -74,14 +75,22 @@ public class first_window extends JFrame{
         		//로그인 메서드 
         		Login log= new Login();
         		log.login(id, pw);
+        		dispose();
+        		// Game_Window 메서드 실행
+        		new Game_Window();
 			}
 		});
 		
 	// 패널 프레임에 추가, 화면에 표시
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null); // 화면 가운데로 띄우기
 		add(panel);
-		setVisible(true);
+		setVisible(visible);
 	}
+	// 아이디를 다른 클래스에서 가져가기 위한 게터 메소드
+	public String getId() {
+		return id;
+	}
+	//메인 메소드
 	public static void main(String[] args) {
 		
 		SwingUtilities.invokeLater(new Runnable() {
