@@ -10,6 +10,9 @@ public class RegisterForm extends JFrame {
 	private JTextField idField;
 	private JPasswordField passwordField;
 	private JButton registerButton;
+	private JButton deleteButton;
+	Join join =new Join();
+	Delete delete =new Delete();
 	private JButton backButton;
 	// 필드 변수
 	private String id;
@@ -32,8 +35,12 @@ public class RegisterForm extends JFrame {
         passwordField = new JPasswordField();
         // 회원가입 버튼 추가
         registerButton = new JButton("회원가입");
+        
+        deleteButton = new JButton("회원삭제");
+
         // 뒤로가기 버튼 추가
         backButton = new JButton("뒤로가기");
+
 
         // 패널에 컴포넌트들 추가
         panel.add(idLabel);
@@ -41,6 +48,7 @@ public class RegisterForm extends JFrame {
         panel.add(passwordLabel);
         panel.add(passwordField);
         panel.add(registerButton);
+        panel.add(deleteButton);
         panel.add(backButton);
         //뒤로가기 버튼 실행
         backButton.addActionListener(new ActionListener() {
@@ -61,16 +69,33 @@ public class RegisterForm extends JFrame {
         		
         		System.out.println(id);
         		System.out.println(pw);	
+        		join.joinmess(id, pw);
+
+        		
+        	}
+        	
+
+        });
+        deleteButton.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		String id = idField.getText();
+        		char[] passwordChars = passwordField.getPassword();
+        		String pw = new String(passwordChars);
+        		
+        		
+        		delete.delete(id, pw);
+        		
         	}
         });
-        
+	// 패널을 프레임에 추가하고 화면에 표시
+        setLocationRelativeTo(null); // 화면 가운데로 띄우기
+        add(panel);
+        setVisible(true);
+}
+
 	
-    // 패널을 프레임에 추가하고 화면에 표시
-    setLocationRelativeTo(null); // 화면 가운데로 띄우기
-	add(panel);
-	setVisible(true);
 	
-	}
 	
 	public String getId() {
 		return id;
