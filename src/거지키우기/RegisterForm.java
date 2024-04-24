@@ -10,6 +10,7 @@ public class RegisterForm extends JFrame {
 	private JTextField idField;
 	private JPasswordField passwordField;
 	private JButton registerButton;
+	Join join =new Join();
 
 	// 생성자
 	public RegisterForm() {
@@ -45,6 +46,7 @@ public class RegisterForm extends JFrame {
         		
         		System.out.println(id);
         		System.out.println(pw);
+        		join.joinmess(id, pw);
         		
         	}
 
