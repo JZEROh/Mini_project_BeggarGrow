@@ -9,21 +9,25 @@ public class Join {
 	public void joinmess(String id,String password) {
 
 		PreparedStatement psmt=null;
+		PreparedStatement psmt2=null;
 		Connection conn=null;
 		int row =0;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url="jdbc:oracle:thin:@localhost:1521:xe";
-			String user = "service";
-			String password1 = "12345";
+			String url="jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
+			String user = "campus_24SW_FS_p1_7";
+			String password1 = "smhrd7";
 			
 			DriverManager.getConnection(url, user, password1);
 			
 			conn = DriverManager.getConnection(url,user,password1);
 			String sql ="INSERT INTO 거지키우기 VALUES(?,?)";
+			String sql2 ="INSERT INTO 거지 정보 VALUES(?,0,0)";
 			psmt=conn.prepareStatement(sql);
+			psmt2=conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, password);
+			psmt2.setString(1, id);
 			row =psmt.executeUpdate();
 			
 			
