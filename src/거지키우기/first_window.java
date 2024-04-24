@@ -75,6 +75,7 @@ public class first_window extends JFrame{
 		});
 		
 	// 패널 프레임에 추가, 화면에 표시
+		setLocationRelativeTo(null);
 		add(panel);
 		setVisible(true);
 	}

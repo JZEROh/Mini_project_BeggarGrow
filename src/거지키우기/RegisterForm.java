@@ -42,7 +42,7 @@ public class RegisterForm extends JFrame {
         panel.add(passwordField);
         panel.add(registerButton);
         panel.add(backButton);
-        
+        //뒤로가기 버튼 실행
         backButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -52,7 +52,7 @@ public class RegisterForm extends JFrame {
 				
 			}
 		});
-        
+        //회원가입 버튼 실행
         registerButton.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
@@ -65,8 +65,12 @@ public class RegisterForm extends JFrame {
         	}
         });
         
-	// 패널을 프레임에 추가하고 화면에 표시
-	add(panel);setVisible(true);
+	
+    // 패널을 프레임에 추가하고 화면에 표시
+    setLocationRelativeTo(null);
+	add(panel);
+	setVisible(true);
+	
 	}
 	
 	public String getId() {
