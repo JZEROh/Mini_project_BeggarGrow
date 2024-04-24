@@ -49,7 +49,6 @@ public class RegisterForm extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				first_window fw = new first_window();
-				
 			}
 		});
         //회원가입 버튼 실행
@@ -67,7 +66,7 @@ public class RegisterForm extends JFrame {
         
 	
     // 패널을 프레임에 추가하고 화면에 표시
-    setLocationRelativeTo(null);
+    setLocationRelativeTo(null); // 화면 가운데로 띄우기
 	add(panel);
 	setVisible(true);
 	
