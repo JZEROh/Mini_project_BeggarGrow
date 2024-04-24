@@ -27,7 +27,7 @@ public class RegisterForm extends JFrame {
         JLabel passwordLabel = new JLabel("Password:");
         passwordField = new JPasswordField();
         // 회원가입 버튼 추가
-        registerButton = new JButton("회원가입");
+        registerButton = new JButton("회원가입");        
 
         // 패널에 컴포넌트들 추가
         panel.add(idLabel);
@@ -49,6 +49,8 @@ public class RegisterForm extends JFrame {
         	}
 
         });
+        
+			
 	// 패널을 프레임에 추가하고 화면에 표시
 	add(panel);setVisible(true);}
 	
