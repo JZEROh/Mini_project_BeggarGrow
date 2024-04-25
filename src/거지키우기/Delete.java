@@ -42,7 +42,7 @@ public class Delete {
 			
 			
 		}catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("빈칸은 입력할 수 없어용 ㅠㅠ");
 		}finally {
 			try {
 				if(psmt!=null) 

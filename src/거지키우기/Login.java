@@ -31,10 +31,12 @@ public class Login {
 			if(rs.next()) {
 				String uName=rs.getString("id");
 				System.out.println(uName+"님 환영합니다~");
+				
 				Game_Window gw = new Game_Window();
-				gw.setID(id);
-				Load ad=new Load();
-				ad.load(id);
+				Load ld=new Load();
+				ld.load(id);
+				
+				
 				// 로그인 시 스토리 출력
 				Story st = new Story();
         		st.ST();
@@ -43,7 +45,8 @@ public class Login {
 			}else {
 				System.out.println("로그인이 실패했습니다");
 				System.out.println("아이디나 비밀번호 다시 확인해보세요");
-				new first_window();
+				first_window fw = new first_window();
+				fw.first_windowMethod();
 			}
 			
 		} catch (Exception e) {
@@ -64,9 +67,5 @@ public class Login {
 		return id;
 	}
 	
-//	public Login(String user) {
-//		super();
-//		this.user = user;
-//	}
 
 }

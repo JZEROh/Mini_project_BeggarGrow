@@ -17,20 +17,12 @@ public class Money {
 			String password1 = "smhrd7";
 			conn = DriverManager.getConnection(url,user,password1);	
 			String sql ="UPDATE 거지정보 SET WALLET=?,UPGRADE_STATUS=?,UPGRADE_COST=? WHERE ID=?";
-<<<<<<< HEAD
-			
-=======
->>>>>>> 052cc1a0b6592e1b9008355cfd0282a307eef422
 			psmt= conn.prepareStatement(sql);
 			psmt.setInt(1, money);
 			psmt.setInt(2, us);
 			psmt.setInt(3, uc);
 			psmt.setString(4,id);
-<<<<<<< HEAD
 			row=psmt.executeUpdate();
-=======
-			int row=psmt.executeUpdate();
->>>>>>> 052cc1a0b6592e1b9008355cfd0282a307eef422
 			
 		
 		} catch (Exception e) {
