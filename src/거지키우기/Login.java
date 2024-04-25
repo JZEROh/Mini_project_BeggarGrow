@@ -40,7 +40,8 @@ public class Login {
 			}else {
 				System.out.println("로그인이 실패했습니다");
 				System.out.println("아이디나 비밀번호 다시 확인해보세요");
-				new first_window();
+				first_window fw = new first_window();
+				fw.first_windowMethod();
 			}
 			
 		} catch (Exception e) {

@@ -31,15 +31,22 @@ public class Join {
 			psmt2=conn.prepareStatement(sql2);
 			psmt2.setString(1, id);
 			row2 =psmt2.executeUpdate();
-			
+			if(row>0 || row2>0) {
+				System.out.println("성공");
+			}
+			else {
+				System.out.println("빈칸은 입력할 수 없어용 ㅠㅠ");
+
+				
+			}
 			
 		}catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("아이디가 이미 있는디용?");
 		}finally {
 			try {
 				if(psmt!=null) 
 					psmt.close();
-				if(psmt!=null) 
+				if(psmt2!=null) 
 					psmt2.close();
 				if(conn!=null)
 					conn.close();
