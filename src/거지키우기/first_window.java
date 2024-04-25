@@ -77,7 +77,7 @@ public class first_window extends JFrame{
         		log.login(id, pw);
         		dispose();
         		// Game_Window 메서드 실행
-        		new Game_Window();
+        		
 			}
 		});
 		
