@@ -70,7 +70,7 @@ public class RegisterForm extends JFrame {
         		System.out.println(id);
         		System.out.println(pw);	
         		join.joinmess(id, pw);
-
+        		
         		
         	}
         	
