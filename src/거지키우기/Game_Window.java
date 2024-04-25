@@ -11,6 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import Music.Error_BGM;
+import Music.Game_Win;
+import Music.GetCoin_BGM;
+import Music.LevelUp_BGM;
+import 아스키아트.Home;
 import 아스키아트.LevelUp;
 import 아스키아트.googul;
 
@@ -27,7 +32,7 @@ public class Game_Window extends JFrame {
 	// 구걸 업그레이드 시 값이 변경될 변수
 	private int Upgrade_Status = 1;
 	private int Upgrade_cost = 10;
-	private int home_cost = 3000;
+	private int home_cost = 300;
 	
 	boolean visible = true;
 	
@@ -37,6 +42,7 @@ public class Game_Window extends JFrame {
 		this.wallet += Upgrade_Status;
 		updateWalletLabel(); // wallet 값 업데이트
 		
+		// 구걸 시 구걸하는 아스키아트 나오는 부분
 		int click=0;
 		if(click%10 == 0) {
 			googul gg = new googul();
@@ -50,14 +56,19 @@ public class Game_Window extends JFrame {
 	private int Upgrade_Begging() {
 		if(this.wallet<Upgrade_cost) {
 			System.out.println("업그레이드 할 돈이 부족합니다");
+			// 업그레이드 하지 못했을때 Error BGM
+			new Error_BGM();
 		}else {
 			this.wallet -= this.Upgrade_cost;
 			this.Upgrade_cost += 30;
 			System.out.println("업그레이드 완료!");
 			this.Upgrade_Status += 1;
 			upgradeCostLabel(); //gui에서 업그레이드 비용 나타내는 부분 새로고침
+			//레벨업 시 나타날 아스키 아트
 			LevelUp lp = new LevelUp();
 			lp.Levelup();
+			//레벨업 시 나오는 BGM
+			new LevelUp_BGM();
 		}
 		updateWalletLabel(); // wallet 값 업데이트
 		return this.Upgrade_Status;
@@ -68,10 +79,16 @@ public class Game_Window extends JFrame {
 		if(this.wallet < home_cost) {
 			System.out.println("아직 집 살돈이 부족해요 ㅠㅠ");
 			System.out.println("열심히 모으세요!!");
+			//집을 사지 못했을때 Error BGM 소리내기
+			new Error_BGM();
 		}else {
 			wallet -= home_cost;
+			Home home = new Home();
+			home.MyHome();
 			System.out.println("거지 탈출!!");
 			System.out.println("게임을 종료합니다.");
+			//집 사는것을 성공했을때 win BGM
+			new Game_Win();
 		}
 		updateWalletLabel(); // wallet 값 업데이트
 	}
@@ -104,7 +121,7 @@ public class Game_Window extends JFrame {
 		//구걸 업그레이드 버튼 추가
 		Click_Begging_Upgrade = new JButton("구걸 업그레이드!!");
 		//집 사기 버튼 추가
-		Click_Buy_home = new JButton("집을 사자!!!!!\n가격: 3000원");
+		Click_Buy_home = new JButton("집을 사자!!!!!\n가격: 300원");
 		//저장하기 버튼 추가
 		Click_Save = new JButton("저장하기");
 		
@@ -125,6 +142,8 @@ public class Game_Window extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				addMoney();
 				System.out.printf("%d원을 벌었습니다.\n지갑:%d\n",Upgrade_Status,wallet);
+				//구걸하면 나는 코인소리
+				new GetCoin_BGM();
 			}
 		});
 		
@@ -135,6 +154,7 @@ public class Game_Window extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Upgrade_Begging();
 				System.out.printf("현재 업그레이드에 필요한 비용: %d원\n",Upgrade_cost);
+				
 			}
 		});
 		
