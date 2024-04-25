@@ -29,12 +29,20 @@ public class Game_Window extends JFrame {
 	private JLabel walletLabel; 
 	private JLabel CostLabel;
 	
+	public String getID() {
+		return ID;
+	}
+	public void setID(String iD) {
+		ID = iD;
+	}
+
 	// 현재 가지고 있는 금액: wallet
 	private int wallet = 0;
 	// 구걸 업그레이드 시 값이 변경될 변수
 	private int Upgrade_Status = 1;
 	private int Upgrade_cost = 10;
 	private int home_cost = 300;
+	private String ID;
 	
 	boolean visible = true;
 	
@@ -180,8 +188,15 @@ public class Game_Window extends JFrame {
 				list.add(wallet);
 				list.add(Upgrade_Status);
 				list.add(Upgrade_cost);
-				System.out.println("저장완료!~");
 				
+				int currentMoney = list.get(0);
+				int UpgradeSTAT = list.get(1);
+				int UpgradeCOST = list.get(2);
+				
+				Money mo = new Money();
+				mo.money(ID,currentMoney,UpgradeSTAT,UpgradeCOST);
+				
+				System.out.println("저장완료!~~");
 			}
 		});
 		

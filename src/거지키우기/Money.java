@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Money {
-	public int money(String id,int money) {
+	public int money(String id,int money,int us,int uc) {
 		PreparedStatement psmt =null;
 		Connection conn =null;
 		
@@ -16,10 +16,12 @@ public class Money {
 			String user = "campus_24SW_FS_p1_7";
 			String password1 = "smhrd7";
 			conn = DriverManager.getConnection(url,user,password1);	
-			String sql ="UPDATE 거지정보 SET WALLET=? WHERE ID=?";
+			String sql ="UPDATE 거지정보 SET WALLET=?,UPGRADE_STATUS=?,UPGRADE_COST=? WHERE ID=?";
 			psmt= conn.prepareStatement(sql);
-			psmt.setString(2,id);
 			psmt.setInt(1, money);
+			psmt.setInt(2, us);
+			psmt.setInt(3, uc);
+			psmt.setString(4,id);
 			int row=psmt.executeUpdate();
 			
 		
