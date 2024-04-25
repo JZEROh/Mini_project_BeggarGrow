@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import oracle.net.aso.l;
+import 아스키아트.LevelUp;
+
 public class Game_Window extends JFrame {
 	private JButton Click_Begging;
 	private JButton Click_Begging_Upgrade;
@@ -123,6 +126,9 @@ public class Game_Window extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Upgrade_Begging();
 				System.out.printf("현재 업그레이드에 필요한 비용: %d원\n",Upgrade_cost);
+				LevelUp lp = new LevelUp();
+				lp.Levelup();
+				
 			}
 		});
 		
