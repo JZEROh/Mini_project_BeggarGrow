@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Music.intro_BGM;
+import 아스키아트.Story;
+
 public class Login {
 	public void login(String id,String pw) {
 		ResultSet rs =null;
@@ -28,6 +31,11 @@ public class Login {
 				String uName=rs.getString("id");
 				System.out.println(uName+"님 환영합니다~");
 				new Game_Window();
+				// 로그인 시 스토리 출력
+				Story st = new Story();
+        		st.ST();
+        		// 로그인 시 BGM 깔기
+        		new intro_BGM();
 			}else {
 				System.out.println("로그인이 실패했습니다");
 				System.out.println("아이디나 비밀번호 다시 확인해보세요");

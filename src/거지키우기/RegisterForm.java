@@ -87,6 +87,7 @@ public class RegisterForm extends JFrame {
         		delete.delete(id, pw);
         		
         	}
+
         });
 	// 패널을 프레임에 추가하고 화면에 표시
         setLocationRelativeTo(null); // 화면 가운데로 띄우기
@@ -95,7 +96,7 @@ public class RegisterForm extends JFrame {
 }
 
 	
-	
+
 	
 	public String getId() {
 		return id;
