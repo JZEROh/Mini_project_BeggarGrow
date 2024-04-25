@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import 아스키아트.GameName;
-import 아스키아트.Story;
 
 public class first_window extends JFrame{
 	private JTextField idField;
@@ -27,6 +26,7 @@ public class first_window extends JFrame{
 	public String saveID;
 	boolean visible = true;
 	
+	// 
 	// 함수
 	public void first_windowMethod() {
 		setTitle("거지키우기_로그인");
@@ -108,9 +108,11 @@ public class first_window extends JFrame{
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
+			
 				first_window fw = new first_window();
 				fw.first_windowMethod();
 			}
 		});
 	}
+	
 }
