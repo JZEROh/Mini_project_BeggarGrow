@@ -12,6 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+import 아스키아트.GameName;
 import 아스키아트.Story;
 
 public class first_window extends JFrame{
@@ -52,6 +53,11 @@ public class first_window extends JFrame{
 		panel.add(loginButton);
 		panel.add(registerButton);
 		
+		//게임 인트로 부분 아스키 아트
+		GameName gn = new GameName();
+		gn.GameName();
+		
+		
 		//버튼 누를 시 상호작용 구현
 		//회원가입 버튼 -> 패널 넘어가기
 		registerButton.addActionListener(new ActionListener() {
@@ -79,8 +85,7 @@ public class first_window extends JFrame{
         		log.login(id, pw);
         		dispose();
         		// Game_Window 메서드 실행
-        		Story st = new Story();
-        		st.ST();
+        		
         		
 			}
 		});
