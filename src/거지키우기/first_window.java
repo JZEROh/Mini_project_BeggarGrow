@@ -23,10 +23,12 @@ public class first_window extends JFrame{
 	//필드
 	private String id;
 	private String pw;
+	public String saveID;
 	boolean visible = true;
 	
 	// 
-	public first_window() {
+	// 함수
+	public void first_windowMethod() {
 		setTitle("거지키우기_로그인");
 		setSize(600,300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,7 +84,8 @@ public class first_window extends JFrame{
         		//로그인 메서드 
         		Login log= new Login();
         		log.login(id, pw);
-        		
+        		saveID = id;
+        		System.out.println(saveID);
         		dispose();
         		// Game_Window 메서드 실행
         		
@@ -96,8 +99,8 @@ public class first_window extends JFrame{
 		setVisible(visible);
 	}
 	// 아이디를 다른 클래스에서 가져가기 위한 게터 메소드
-	public String getId() {
-		return id;
+	public String getsaveID() {
+		return this.saveID;
 	}
 	//메인 메소드
 	public static void main(String[] args) {
@@ -105,8 +108,9 @@ public class first_window extends JFrame{
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				first_window fw = new first_window(); 
 			
+				first_window fw = new first_window();
+				fw.first_windowMethod();
 			}
 		});
 	}

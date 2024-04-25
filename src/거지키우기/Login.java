@@ -27,17 +27,14 @@ public class Login {
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
 			rs=psmt.executeQuery();
-			
-			
-			
-			
+		
 			if(rs.next()) {
 				String uName=rs.getString("id");
 				System.out.println(uName+"님 환영합니다~");
-				
-				
 				Game_Window gw = new Game_Window();
 				gw.setID(id);
+				Load ad=new Load();
+				ad.load(id);
 				// 로그인 시 스토리 출력
 				Story st = new Story();
         		st.ST();
