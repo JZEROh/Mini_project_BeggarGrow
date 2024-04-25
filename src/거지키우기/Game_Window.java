@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import 아스키아트.LevelUp;
+import 아스키아트.googul;
+
 public class Game_Window extends JFrame {
 	private JButton Click_Begging;
 	private JButton Click_Begging_Upgrade;
@@ -34,6 +37,13 @@ public class Game_Window extends JFrame {
 		this.wallet += Upgrade_Status;
 		updateWalletLabel(); // wallet 값 업데이트
 		
+		int click=0;
+		if(click%10 == 0) {
+			googul gg = new googul();
+			gg.Googul();
+			click++;
+		}
+		
 		return wallet;
 	}
 	// 구걸 업그레이드 클릭시 돈 업그레이드 및 가진 돈 차감
@@ -45,7 +55,9 @@ public class Game_Window extends JFrame {
 			this.Upgrade_cost += 30;
 			System.out.println("업그레이드 완료!");
 			this.Upgrade_Status += 1;
-			upgradeCostLabel();
+			upgradeCostLabel(); //gui에서 업그레이드 비용 나타내는 부분 새로고침
+			LevelUp lp = new LevelUp();
+			lp.Levelup();
 		}
 		updateWalletLabel(); // wallet 값 업데이트
 		return this.Upgrade_Status;
