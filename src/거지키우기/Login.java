@@ -27,9 +27,11 @@ public class Login {
 			if(rs.next()) {
 				String uName=rs.getString("id");
 				System.out.println(uName+"님 환영합니다~");
+				new Game_Window();
 			}else {
 				System.out.println("로그인이 실패했습니다");
 				System.out.println("아이디나 비밀번호 다시 확인해보세요");
+				new first_window();
 			}
 			
 		} catch (Exception e) {
