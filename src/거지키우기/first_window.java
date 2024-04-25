@@ -12,6 +12,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+import 아스키아트.Story;
+
 public class first_window extends JFrame{
 	private JTextField idField;
 	private JPasswordField passwordField;
@@ -77,6 +79,8 @@ public class first_window extends JFrame{
         		log.login(id, pw);
         		dispose();
         		// Game_Window 메서드 실행
+        		Story st = new Story();
+        		st.ST();
         		
 			}
 		});
