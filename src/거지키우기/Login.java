@@ -30,7 +30,8 @@ public class Login {
 			if(rs.next()) {
 				String uName=rs.getString("id");
 				System.out.println(uName+"님 환영합니다~");
-				new Game_Window();
+				Game_Window gw = new Game_Window();
+				gw.setID(id);
 				// 로그인 시 스토리 출력
 				Story st = new Story();
         		st.ST();
