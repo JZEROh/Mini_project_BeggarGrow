@@ -75,7 +75,9 @@ public class first_window extends JFrame{
         		//로그인 메서드 
         		Login log= new Login();
         		log.login(id, pw);
+        		log.setId(id);
         		dispose();
+        		
         		// Game_Window 메서드 실행
         		
 			}

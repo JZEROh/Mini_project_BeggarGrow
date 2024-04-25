@@ -26,6 +26,7 @@ public class Game_Window extends JFrame {
 	private int Upgrade_cost = 10;
 	private int home_cost = 3000;
 	
+	
 	boolean visible = true;
 	
 	//구걸 클릭시 돈 추가되는 메서드
@@ -142,11 +143,24 @@ public class Game_Window extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				ArrayList<Integer> list = new ArrayList<Integer>();
+				ArrayList<Object> list = new ArrayList<Object>();
+				Login lo =new Login();
+				
+				//리스트 추가
+				System.out.println(lo.getId());
+				list.add(lo.getId());
 				list.add(wallet);
 				list.add(Upgrade_Status);
 				list.add(Upgrade_cost);
-				System.out.println("저장완료!~");
+				//돈저장
+				Money mo=new Money();
+				String id = (String)list.get(0);
+				int wa=(int)list.get(1);
+				int us=(int)list.get(2);
+				int uc=(int)list.get(3);
+				//머니 메서드
+				int row =mo.money(id,wa,us,uc);
+				System.out.println(row);
 				
 			}
 		});

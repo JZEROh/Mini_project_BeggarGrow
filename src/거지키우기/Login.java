@@ -7,10 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Login {
+	public String id;
 	public void login(String id,String pw) {
 		ResultSet rs =null;
 		PreparedStatement psmt =null;
 		Connection conn =null;
+		
 		try {
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -22,6 +24,7 @@ public class Login {
 			psmt= conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
+			
 			rs=psmt.executeQuery();
 			
 			if(rs.next()) {
@@ -33,6 +36,7 @@ public class Login {
 				System.out.println("아이디나 비밀번호 다시 확인해보세요");
 				new first_window();
 			}
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,5 +55,12 @@ public class Login {
 		}
 	
 	}
-
+	
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
 }
