@@ -16,6 +16,7 @@ import Music.Error_BGM;
 import Music.Game_Win;
 import Music.GetCoin_BGM;
 import Music.LevelUp_BGM;
+import javazoom.jl.player.MP3Player;
 import 아스키아트.Home;
 import 아스키아트.LevelUp;
 import 아스키아트.googul;
@@ -26,6 +27,7 @@ public class Game_Window extends JFrame {
 	private JButton Click_Begging_Upgrade;
 	private JButton Click_Buy_home;
 	private JButton Click_Save;
+	private JButton Click_Refresh;
 	private JLabel walletLabel; 
 	private JLabel CostLabel;
 	
@@ -44,6 +46,17 @@ public class Game_Window extends JFrame {
 	private int home_cost = 300;
 	private String ID;
 	
+
+	public void setWallet(int wallet) {
+		this.wallet = wallet;
+	}
+	public void setUpgrade_Status(int upgrade_Status) {
+		Upgrade_Status = upgrade_Status;
+	}
+	public void setUpgrade_cost(int upgrade_cost) {
+		Upgrade_cost = upgrade_cost;
+	}
+
 	boolean visible = true;
 	
 	//구걸 클릭시 돈 추가되는 메서드
@@ -96,8 +109,12 @@ public class Game_Window extends JFrame {
 			Home home = new Home();
 			home.MyHome();
 			System.out.println("거지 탈출!!");
-			System.out.println("게임을 종료합니다.");
+			System.out.println("나도 이제 자가 있다!!!!~~~");
+			System.out.println("ps. 무리한 투자는 거지가 되는 지름길입니다...");
+			System.out.println("    모두 부자되세요~");
 			//집 사는것을 성공했을때 win BGM
+//			MP3Player mp3 = new MP3Player();
+//			mp3.stop();
 			new Game_Win();
 		}
 		updateWalletLabel(); // wallet 값 업데이트
@@ -113,8 +130,9 @@ public class Game_Window extends JFrame {
 		String formattedCostString = String.format("업그레이드 비용: %d원",Upgrade_cost);
 		CostLabel.setText(formattedCostString);
 	}
+	
 	//생성자
-	public Game_Window() {
+	public void Game_WindowMethod() {
 		setTitle("거지키우기_기능");
 		setSize(500,250);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -124,8 +142,7 @@ public class Game_Window extends JFrame {
 		
 		walletLabel = new JLabel("지갑: 0"); // 초기값 설정
 		CostLabel = new JLabel("업그레이드 비용: 10원");
-//		String formattedString = String.format("지갑: %d",wallet);
-//		JLabel bank = new JLabel(formattedString);
+
 		//구걸하기 버튼 추가
 		Click_Begging = new JButton("구걸하기");
 		//구걸 업그레이드 버튼 추가
@@ -134,7 +151,8 @@ public class Game_Window extends JFrame {
 		Click_Buy_home = new JButton("집을 사자!!!!!\n가격: 300원");
 		//저장하기 버튼 추가
 		Click_Save = new JButton("저장하기");
-		
+		//새로고침 버튼 추가
+		Click_Refresh = new JButton("새로고침");
 		//패널에 컴포넌트 추가
 //		panel.add(bank);
 		panel.add(walletLabel);
@@ -143,8 +161,18 @@ public class Game_Window extends JFrame {
 		panel.add(Click_Begging_Upgrade);
 		panel.add(Click_Buy_home);
 		panel.add(Click_Save);
-		
+		panel.add(Click_Refresh);
 		//버튼 누를 시 상호작용 구현
+		// 돈 새로고침 버튼
+		Click_Refresh.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				updateWalletLabel(); // wallet 값 업데이트
+				upgradeCostLabel();
+			}
+		});
+		
 		//구걸하기 버튼 -> 돈 1원 벌기
 		Click_Begging.addActionListener(new ActionListener() {
 			
@@ -183,7 +211,6 @@ public class Game_Window extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				ArrayList<Integer> list = new ArrayList<Integer>();
 				list.add(wallet);
 				list.add(Upgrade_Status);
@@ -212,7 +239,8 @@ public class Game_Window extends JFrame {
 			
 			@Override
 			public void run() {
-				new Game_Window();
+				Game_Window gw = new Game_Window();
+				gw.Game_WindowMethod();
 				
 			}
 		});

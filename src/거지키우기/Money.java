@@ -9,7 +9,7 @@ public class Money {
 	public int money(String id,int money,int us,int uc) {
 		PreparedStatement psmt =null;
 		Connection conn =null;
-		
+		int row=0;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url="jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
@@ -22,7 +22,7 @@ public class Money {
 			psmt.setInt(2, us);
 			psmt.setInt(3, uc);
 			psmt.setString(4,id);
-			int row=psmt.executeUpdate();
+			row=psmt.executeUpdate();
 			
 		
 		} catch (Exception e) {
@@ -39,7 +39,7 @@ public class Money {
 				e.printStackTrace();
 			}
 		}
-	return money;
+	return row;
 		
 	}
 

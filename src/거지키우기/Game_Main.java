@@ -7,13 +7,8 @@ import DAO_DTO.FirstWindowDAO;
 public class Game_Main {
 	
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				FirstWindowDAO fw = new FirstWindowDAO();
-				fw.first_windowMethod();
-			}
-		});
+		first_window fw = new first_window();
+		fw.first_windowMethod();
 		
 	}
 }

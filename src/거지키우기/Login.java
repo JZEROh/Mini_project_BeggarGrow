@@ -10,12 +10,13 @@ import Music.intro_BGM;
 import 아스키아트.Story;
 
 public class Login {
-	public void login(String id,String pw) {
+	
+
+	public String login(String id,String pw) {
 		ResultSet rs =null;
 		PreparedStatement psmt =null;
 		Connection conn =null;
 		try {
-			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url="jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
 			String user="campus_24SW_FS_p1_7";
@@ -26,12 +27,16 @@ public class Login {
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
 			rs=psmt.executeQuery();
-			
+		
 			if(rs.next()) {
 				String uName=rs.getString("id");
 				System.out.println(uName+"님 환영합니다~");
+				
 				Game_Window gw = new Game_Window();
-				gw.setID(id);
+				Load ld=new Load();
+				ld.load(id);
+				
+				
 				// 로그인 시 스토리 출력
 				Story st = new Story();
         		st.ST();
@@ -59,7 +64,8 @@ public class Login {
 				e.printStackTrace();
 			}
 		}
-	
+		return id;
 	}
+	
 
 }
