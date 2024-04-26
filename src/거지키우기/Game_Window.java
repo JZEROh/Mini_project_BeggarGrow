@@ -11,14 +11,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+
 import Music.Error_BGM;
 import Music.Game_Win;
 import Music.GetCoin_BGM;
 import Music.LevelUp_BGM;
+import Music.intro_BGM;
 import javazoom.jl.player.MP3Player;
 import 아스키아트.Home;
 import 아스키아트.LevelUp;
 import 아스키아트.googul;
+
 
 public class Game_Window extends JFrame {
 	private JButton Click_Begging;
@@ -190,7 +193,7 @@ public class Game_Window extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Upgrade_Begging();
 				System.out.printf("현재 업그레이드에 필요한 비용: %d원\n",Upgrade_cost);
-				
+
 			}
 		});
 		

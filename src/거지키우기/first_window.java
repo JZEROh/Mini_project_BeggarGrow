@@ -88,7 +88,7 @@ public class first_window extends JFrame{
         		System.out.println(saveID);
         		dispose();
         		// Game_Window 메서드 실행
-        		
+
         		
 			}
 		});
