@@ -27,7 +27,7 @@ public class Join {
 			psmt.setString(1, id);
 			psmt.setString(2, password);
 			row =psmt.executeUpdate();
-			String sql2 ="INSERT INTO 거지정보 VALUES(?,0,0,0)";
+			String sql2 ="INSERT INTO 거지정보 VALUES(?,0,1,10)";
 			psmt2=conn.prepareStatement(sql2);
 			psmt2.setString(1, id);
 			row2 =psmt2.executeUpdate();
